@@ -49,12 +49,9 @@ int solution(string name) {
     }
     cursor = index[0];
     answer += index[0];
-    for(int i = 0; i < index.size(); i++)
-        printf("%d", index[i]);
+    
     for(int i = 1; i < index.size(); i++){
-        
         temp = (abs(index[i] - cursor) > abs(cursor + (size - index[i])) ) ? abs(cursor + (size - index[i])) : abs(index[i] - cursor);
-        
         answer += temp;
         cursor = index[i];
     }
