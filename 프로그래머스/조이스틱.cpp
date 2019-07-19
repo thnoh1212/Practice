@@ -77,3 +77,4 @@ int solution(string name) {
     //Z = 90
     return answer;
 }
+#테스트케이스 11 안됨. 혼합결과 생각.
