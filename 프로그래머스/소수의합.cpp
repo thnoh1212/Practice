@@ -5,7 +5,7 @@
 using namespace std;
 
 long long solution(int n) {
-    long long answer = 0; // int 허용범위를 초과할 수 있으므로 double, long long 등의 자
+    long long answer = 0; // int 허용범위를 초과할 수 있으므로 double, long long 등의 자료형 사용
     int *check = new int[n+1];
     
     for(int i = 0; i <= n; i++)
