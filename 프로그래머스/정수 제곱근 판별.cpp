@@ -7,7 +7,7 @@ using namespace std;
 long long solution(long long n) {
     long long answer = 0;
     
-    long long n_integer = sqrtl(n);
+    long long n_integer = sqrt(n);
     
     if(powl(n_integer, 2) == n){
         n_integer++;
