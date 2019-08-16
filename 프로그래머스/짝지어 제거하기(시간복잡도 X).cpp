@@ -1,36 +1,28 @@
 #include <iostream>
 #include<string>
-#include <vector>
 using namespace std;
 
 int solution(string s)
 {
     int answer = 0;
-    vector<int> check;
-    int temp = 0, count = 1;
-    check.assign(s.size(), 0);
-    while(count != 0){
-        count = 0;
-        for(int i = 0; i < s.size(); i++){
-            if(check[i] != 0)
-                continue;
-            
-            temp = i+1;
-            while(check[temp] != 0 && temp < s.size() - 1)
-                temp += 1;
-            if(s[i] == s[temp]){
-                check[i] = 1;
-                check[temp] = 1;
-                count++;
-            }
+    int i = 0, check = 0;;
+    while(s.size() >= 1){
+        if(i >= s.size())
+            i = 0;
+        if(s[i] == s[i+1]){
+            check = 0;       
+            s.erase(i, 2);
+        }
+        else{
+            i++;
+            check++;
+            if(check >= s.size())
+                break;
         }
     }
-    answer = 1;
-    for(int i = 0; i < check.size(); i++){
-        if(check[i] == 0){
-            answer = 0 ;
-            break;
-        }
-    }
+    if(s.size() == 0)
+        answer = 1;
+    else
+        answer = 0;
     return answer;
 }
