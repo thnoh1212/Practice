@@ -18,6 +18,12 @@ bool cmp(const string a, const string b){
 		return a < b;
 }
 
+/*
+bool cmp(const string a, const string b) {
+	return make_tuple(a.length(), a) < make_tuple(b.length(), b);
+}
+*/
+
 int main()
 {
 	int N;
