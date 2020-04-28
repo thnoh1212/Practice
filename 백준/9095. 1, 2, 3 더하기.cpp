@@ -1,3 +1,5 @@
+// 전역변수로 count를 사용할 경우 여러 다른 함수와 이름이 겹쳐 모호함 발생. cnt 사용
+
 #include <iostream>
 
 using namespace std;
