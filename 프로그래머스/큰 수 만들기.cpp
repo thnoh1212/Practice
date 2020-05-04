@@ -15,7 +15,7 @@ string solution(string number, int k) {
                 cnt = j;
             }
         }
-        number.replace(0,cnt+1,""); // 최댓값 앞에있는 값들은 전부 삭제
+        number.erase(0,cnt+1); // 최댓값 앞에있는 값들은 전부 삭제
         answer += to_string(max - 48); //최대값 삽입
     }
     return answer;
