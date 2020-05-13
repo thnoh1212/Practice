@@ -1,8 +1,8 @@
+// 벡터에는 pop_front가 없으므로 이를 대체하기 위해 v.erase(v.begin()) 사용
+
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <iostream>
-
 
 using namespace std;
 
