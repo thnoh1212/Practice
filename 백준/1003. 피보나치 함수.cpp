@@ -6,10 +6,10 @@ using namespace std;
 int main()
 {
 	int answer[41][2] = { 0, 0 };
-	answer[0][0] = { 1 };
-	answer[0][1] = { 0 };
-	answer[1][0] = { 0 };
-	answer[1][1] = { 1 };
+	answer[0][0] = 1;
+	answer[0][1] = 0;
+	answer[1][0] = 0;
+	answer[1][1] = 1;
 
 	for (int i = 2; i <= 40; i++) {
 		answer[i][0] = answer[i - 1][0] + answer[i - 2][0];
