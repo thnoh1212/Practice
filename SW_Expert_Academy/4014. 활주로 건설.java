@@ -28,14 +28,8 @@ class Solution
             }
             
             for(int i = 0; i < N; i++) {
-            	if(findRowAirstrip(i)) {
-            		System.out.println("row " + i);
-            		answer++;
-            	}
-            	if(findColumnAirstrip(i)) {
-            		System.out.println("col " + i);
-            		answer++;
-            	}
+            	if(findRowAirstrip(i)) answer++;
+            	if(findColumnAirstrip(i)) answer++;
             }
             System.out.println("#" + test_case + " " + answer);
 		}
