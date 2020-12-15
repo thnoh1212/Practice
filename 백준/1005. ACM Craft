@@ -1,0 +1,79 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+
+using namespace std;
+struct compare {
+	bool operator()(pair<int, int> a, pair<int, int> b) {
+		return a.second > b.second;
+	}
+};
+
+int main(){
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	int T;
+	cin >> T;
+	for (int tc = 1; tc <= T; tc++) {
+		int N, K, W;
+		cin >> N >> K;
+		bool chk[1001] = { false };
+		vector<int> time;
+		priority_queue<pair<int, int>, vector<pair<int, int>>, compare> waiting;
+		vector<int> XtoY[1001]; // X건물이 지어지면 지을 수 있는 건물 Y
+		vector<int> YtoX[1001]; // Y건물이 지어지기 위해 필요한 건물 X
+		time.push_back(0);
+		for (int i = 0; i < N; i++) {
+			int temp;
+			cin >> temp;
+			time.push_back(temp);
+		}
+		for (int i = 0; i < K; i++) {
+			int X, Y;
+			cin >> X >> Y;
+			XtoY[X].push_back(Y);
+			YtoX[Y].push_back(X);
+		}
+		cin >> W;
+
+		for (int i = 1; i <= N; i++) {
+			if (YtoX[i].size() == 0) {
+				waiting.push({ i, time[i] });
+			}
+		}
+		int cur = 0;
+		bool findAnswer = false;
+		while (!findAnswer) {
+			cur = waiting.top().second;
+			
+			bool flag = true;
+			while (flag) {
+				if (waiting.top().second == cur) {
+					int idx = waiting.top().first;
+					if (idx == W) {
+						findAnswer = true;
+						break;
+					}
+					waiting.pop();
+					chk[idx] = true;
+					for (int i = 0; i < XtoY[idx].size(); i++) {
+						bool temp = true;
+						for (int j = 0; j < YtoX[XtoY[idx][i]].size(); j++) {
+							if (!chk[YtoX[XtoY[idx][i]][j]]) {
+								temp = false;
+								break;
+							}
+						}
+						if (temp) waiting.push({ XtoY[idx][i], time[XtoY[idx][i]] + cur});
+					}
+				}
+				else
+					flag = false;
+			}
+		}
+		cout << cur << '\n';
+	}
+
+	return 0;
+}
