@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-16. 동적계획법 연습",
+      "appliesTo": "16. 동적계획법 연습.cpp",
+      "type": "launch"
+    }
+  ]
+}
