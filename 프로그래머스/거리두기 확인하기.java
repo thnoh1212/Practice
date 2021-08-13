@@ -1,9 +1,9 @@
 class Solution {
     static int[][] dir = {{1,0},{0,1}};
-    static int[][] diagonal = {{1,1}, {-1,1}};
+    static int[][] diagonal = {{1,1}, {1,-1}};
     static int[][][] diaCheck= {
             {{1,0}, {0,1}},
-            {{-1,0},{0,1}}
+            {{1,0},{0,-1}}
     };
     public int[] solution(String[][] places) {
         int[] answer = new int[places.length];
