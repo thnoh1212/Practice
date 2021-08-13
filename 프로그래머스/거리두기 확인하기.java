@@ -1,11 +1,9 @@
 class Solution {
-    static int[][] dir = {{1,0},{0,1},{-1,0},{0,-1}};
-    static int[][] diagonal = {{-1,-1}, {1,1}, {-1,1}, {1,-1}};
+    static int[][] dir = {{1,0},{0,1}};
+    static int[][] diagonal = {{1,1}, {-1,1}};
     static int[][][] diaCheck= {
-            {{-1,0}, {0,-1}},
             {{1,0}, {0,1}},
-            {{-1,0},{0,1}},
-            {{1,0}, {0,-1}}
+            {{-1,0},{0,1}}
     };
     public int[] solution(String[][] places) {
         int[] answer = new int[places.length];
@@ -14,7 +12,7 @@ class Solution {
             for(int j = 0; j < 5; j++){
                 for(int k = 0; k < 5; k++){
                     if(places[i][j].charAt(k) == 'P'){
-                        for(int l = 0; l < 4; l++){ // 직선 맨해튼 거리 1
+                        for(int l = 0; l < 2; l++){ // 직선 맨해튼 거리 1
                             int nJ = j + dir[l][0];
                             int nK = k + dir[l][1];
                             if(nJ < 0 || nJ >= 5 || nK < 0 || nK >= 5 ) continue;
@@ -23,7 +21,7 @@ class Solution {
                                 break;
                             }
                         }
-                        for(int l = 0; l < 4; l++){ // 직선 맨해튼 거리 2
+                        for(int l = 0; l < 2; l++){ // 직선 맨해튼 거리 2
                             int nJ = j + dir[l][0] * 2;
                             int nK = k + dir[l][1] * 2;
                             if(nJ < 0 || nJ >= 5 || nK < 0 || nK >= 5 ) continue;
@@ -33,7 +31,7 @@ class Solution {
                                 break;
                             }
                         }
-                        for(int l = 0; l < 4; l++){ // 대각선 맨해튼 거리 2
+                        for(int l = 0; l < 2; l++){ // 대각선 맨해튼 거리 2
                             int nJ = j + diagonal[l][0];
                             int nK = k + diagonal[l][1];
                             if(nJ < 0 || nJ >= 5 || nK < 0 || nK >= 5 ) continue;
